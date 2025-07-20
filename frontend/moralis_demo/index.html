@@ -1,68 +1,14 @@
-
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>Kết Nối Ví - BSCO Token Loyalty</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f1f5f9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-    .card {
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        text-align: center;
-    }
-    h2 {
-        color: #2563eb;
-    }
-    button {
-        background-color: #2563eb;
-        color: white;
-        padding: 12px 25px;
-        font-size: 18px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        margin-top: 20px;
-    }
-    button:hover {
-        background-color: #1d4ed8;
-    }
-    #wallet-info {
-        margin-top: 20px;
-        font-weight: bold;
-        color: #059669;
-    }
-</style>
 <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
 <script>
 Moralis.start({ apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjY0ODRhZjc3LTVmYTItNDQxYy04YzkzLTljOGJhMjM1MGFjNCIsIm9yZ0lkIjoiNDYwMjUwIiwidXNlcklkIjoiNDczNTA5IiwidHlwZUlkIjoiOWU4YTNlZjUtODA4My00ZjU1LWJjOTEtYWU3ZmJlMDJkYmU3IiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NTI5NzQ4MDksImV4cCI6NDkwODczNDgwOX0.kn5-FBw-hiQfieUhJg_uu0afa3jaU2bMuHP8ZAXod7k" });
 
 async function loginWithWallet(){
     try {
-        const user = await Moralis.authenticate();
-        const address = user.get('ethAddress');
-        document.getElementById("wallet-info").innerText = "🎉 Đã kết nối ví: " + address;
+        const { account } = await Moralis.enableWeb3();
+        document.getElementById("wallet-info").innerText = "🎉 Đã kết nối ví: " + account;
+        console.log("Địa chỉ ví:", account);
     } catch(error) {
         console.error("Lỗi kết nối ví:", error);
     }
 }
 </script>
-</head>
-<body>
-<div class="card">
-    <h2>Kết nối ví khách hàng nhận điểm thưởng <br> <b>BSCO Token</b></h2>
-    <button onclick="loginWithWallet()">🔗 Kết Nối Ví</button>
-    <p id="wallet-info"></p>
-</div>
-</body>
-</html>
