@@ -8,7 +8,7 @@
 4. Khách hàng vào site để kết nối ví, kiểm tra ví nhận thưởng điểm token
 
 ## Thư mục chính:
-/frontend/moralis_demo/connect_wallet.html
+/frontend/moralis_demo/index.html
 
 ---
-Tạo bởi ChatGPT hỗ trợ doanh nghiệp BSCO.
+Tạo bởi doanh nghiệp BSCO.
