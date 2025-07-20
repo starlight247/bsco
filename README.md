@@ -9,4 +9,4 @@
 Site sẽ tự động nhận index.html làm trang chính.
 
 ---
-ChatGPT hỗ trợ doanh nghiệp BSCO.
+Doanh nghiệp BSCO.
