@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kết Nối Ví - BSCO Token Loyalty</title>
+</head>
+<body>
+<h2>Kết nối ví khách hàng nhận điểm thưởng BSCO Token</h2>
+
+<button onclick="loginWithWallet()">Kết nối ví</button>
+<p id="wallet-info"></p>
+
+<script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+<script>
+Moralis.start({ apiKey: "YOUR_MORALIS_API_KEY" });
+
+async function loginWithWallet(){
+    try {
+        const user = await Moralis.authenticate();
+        const address = user.get('ethAddress');
+        document.getElementById("wallet-info").innerText = "Đã kết nối ví: " + address;
+        console.log("Wallet Address:", address);
+    } catch(error) {
+        console.error("Lỗi kết nối ví:", error);
+    }
+}
+</script>
+</body>
+</html>
